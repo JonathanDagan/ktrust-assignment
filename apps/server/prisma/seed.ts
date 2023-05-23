@@ -16,6 +16,7 @@ const userData: Prisma.UserCreateInput[] = [
         },
       ],
     },
+    role: "ADMIN",
   },
   {
     name: "Nilu",
