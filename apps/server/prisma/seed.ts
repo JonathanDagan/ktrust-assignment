@@ -1,4 +1,6 @@
 import { PrismaClient, Prisma } from "@prisma/client";
+import bcrypt from 'bcryptjs';
+
 
 const prisma = new PrismaClient();
 
@@ -16,6 +18,7 @@ const userData: Prisma.UserCreateInput[] = [
         },
       ],
     },
+    password: bcrypt.hashSync("alice123", 10),
     role: "ADMIN",
   },
   {
@@ -31,6 +34,7 @@ const userData: Prisma.UserCreateInput[] = [
         },
       ],
     },
+    password: bcrypt.hashSync("nilu123", 10),
   },
   {
     name: "Mahmoud",
@@ -51,6 +55,7 @@ const userData: Prisma.UserCreateInput[] = [
         },
       ],
     },
+    password: bcrypt.hashSync("mahmoud123", 10),
   },
 ];
 
