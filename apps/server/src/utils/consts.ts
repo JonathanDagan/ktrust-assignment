@@ -1,0 +1,1 @@
+export const SigningAlgorithm = 'HS256';
