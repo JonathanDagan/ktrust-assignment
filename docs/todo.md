@@ -7,6 +7,7 @@
 - [ ] Add deployment scripts
 - [ ] Add Github Actions
 - [ ] Add vscode settings
+- [ ] Add docs
 
 ## Server
 - [x] Connect Prisma
