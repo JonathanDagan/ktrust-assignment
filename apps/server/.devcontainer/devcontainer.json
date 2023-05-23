@@ -1,0 +1,30 @@
+{
+  "name": "Server 🛜",
+  "remoteUser": "node",
+  "workspaceFolder": "/workspace",
+  "mounts": [
+    "source=${localEnv:HOME}${localEnv:USERPROFILE},target=/home/node,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/.git,target=/workspace/.git,type=bind,consistency=cached"
+],
+  "service": "devcontainer",
+  "dockerComposeFile": "docker-compose.yml",
+  "shutdownAction": "stopCompose",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "mongodb.mongodb-vscode",
+        "Postman.postman-for-vscode",
+        "esbenp.prettier-vscode",
+        "rvest.vs-code-prettier-eslint"
+      ],
+      "settings": {
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": true,
+          "source.fixAll.stylelint": true
+        },
+        // "terminal.integrated.cwd": "/workspace/server"
+      }
+    }
+  }
+}

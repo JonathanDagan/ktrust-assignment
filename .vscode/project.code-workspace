@@ -1,0 +1,23 @@
+{
+    "folders": [
+      {
+        "name": "ROOT",
+        "path": "../"
+      },
+      {
+        "name": "server",
+        "path": "../apps/server",
+        
+      },
+    ],
+    "settings": {
+    },
+    "extensions": {
+      "unwantedRecommendations": []
+    },
+    "launch": {
+      "version": "0.2.0",
+      "configurations": [],
+      "compounds": []
+    }
+  }
