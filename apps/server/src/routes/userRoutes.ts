@@ -5,7 +5,7 @@ import { jwtCheck, authorize } from '../middleware/auth';
 const router = express.Router();
 
 // Public routes
-router.post('/', userController.createUser);
+router.post('/sign-up', userController.createUser);
 
 // Private routes
 router.use(jwtCheck); // All routes after this will be protected
