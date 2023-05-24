@@ -38,6 +38,7 @@ const AdminPage: React.FC = () => {
   }
 
   if (error) {
+    // @ts-ignore
     return <div>An error has occurred: {error.message}</div>;
   }
 
