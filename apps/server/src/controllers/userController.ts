@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import { Request, Response } from "express";
 import bcrypt from "bcryptjs";
 
-import generateToken from "../utils/generateToken";
+import { jwtSign } from "../utils/jwt";
 
 const prisma = new PrismaClient();
 
@@ -57,7 +57,7 @@ export const createUser = async (req: Request, res: Response) => {
       },
     });
 
-    const token = generateToken(user);
+    const token = jwtSign(user);
 
     res.status(201).json({ token });
   } catch (error) {
