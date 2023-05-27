@@ -23,8 +23,13 @@ export const loginUser = async (req: Request, res: Response) => {
     if (!isMatch) {
       return res.status(400).json({ message: "Invalid credentials" });
     }
-
-    const token = generateToken(user);
+    const userDetails = {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+    };
+    const token = generateToken(userDetails);
 
     res.status(200).json({ token });
   } catch (error) {
