@@ -6,15 +6,15 @@ const prisma = new PrismaClient();
 
 const userData: Prisma.UserCreateInput[] = [
   {
-    name: "Alice",
+    username: "Alice",
     email: "alice@prisma.io",
-    posts: {
+    authored: {
       create: [
         {
           title: "Join us for Prisma Day 2021",
-          content: "https://www.prisma.io/day",
+          body: "https://www.prisma.io/day",
           slug: "prisma-day-2021",
-          published: true,
+          description: "Prisma Day is a one-day conference in Berlin focused on the open source Prisma ecosystem.",
         },
       ],
     },
@@ -22,36 +22,36 @@ const userData: Prisma.UserCreateInput[] = [
     role: "ADMIN",
   },
   {
-    name: "Nilu",
+    username: "Nilu",
     email: "nilu@prisma.io",
-    posts: {
+    authored: {
       create: [
         {
           title: "Follow Prisma on Twitter",
-          content: "https://www.twitter.com/prisma",
+          body: "https://www.twitter.com/prisma",
           slug: "follow-prisma-on-twitter",
-          published: true,
+          description: 'Follow Prisma on Twitter and get the latest news about Prisma Day 2021.',
         },
       ],
     },
     password: bcrypt.hashSync("nilu123", 10),
   },
   {
-    name: "Mahmoud",
+    username: "Mahmoud",
     email: "mahmoud@prisma.io",
-    posts: {
+    authored: {
       create: [
         {
           title: "Ask a question about Prisma on GitHub",
-          content: "https://www.github.com/prisma/prisma/discussions",
+          body: "https://www.github.com/prisma/prisma/discussions",
           slug: "ask-question-about-prisma-on-github",
-          published: true,
+          description: "Ask a question about Prisma on GitHub and get help from the Prisma community.",
         },
         {
           title: "Prisma on YouTube",
-          content: "https://pris.ly/youtube",
+          body: "https://pris.ly/youtube",
           slug: "prisma-on-youtube",
-          published: true,
+          description: "Subscribe to the Prisma YouTube channel to get notified when new videos are added.",
         },
       ],
     },
