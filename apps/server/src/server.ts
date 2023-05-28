@@ -6,8 +6,7 @@ import { swaggerSpec } from "./config/swagger";
 
 import { ENV } from "./config/env";
 
-import userRoutes from "./routes/userRoutes";
-import authRoutes from "./routes/authRoutes";
+import apiRouter from "./routes";
 
 const app = express();
 
@@ -21,8 +20,7 @@ app.get("/", (req, res) => {
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 // Routes
-app.use("/api/users", userRoutes);
-app.use("/api/auth", authRoutes);
+app.use("/api", apiRouter);
 
 app.listen(ENV.PORT, () => {
   console.log(`Server is running on port ${ENV.PORT}`);
