@@ -1,0 +1,12 @@
+import prisma from "../prisma";
+
+export default async function userGetEmailPrisma(email: string) {
+  if (!email) return null;
+  const user = await prisma.user.findUnique({
+    where: { email },
+    include: {
+      authored: true,
+    },
+  });
+  return user;
+}
