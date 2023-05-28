@@ -1,6 +1,6 @@
 import prisma from "../prisma";
 
-export default async function listArticles(
+export default async function articleList(
   authorUsername?: string,
   limit = 20,
   offset = 0
@@ -8,6 +8,9 @@ export default async function listArticles(
   const articles = await prisma.article.findMany({
     where: {
       authorUsername,
+    },
+    include: {
+      author: true,
     },
     take: limit,
     skip: offset,
