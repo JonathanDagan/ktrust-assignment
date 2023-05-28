@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
-import { ENV } from "../config/env";
-import { SigningAlgorithm } from "./consts";
+import { ENV } from "../../config/env";
+import { SigningAlgorithm } from "../consts";
 
 const privateKey = ENV.JWT_SECRET;
 const expiresIn = ENV.JWT_EXPIRATION;
