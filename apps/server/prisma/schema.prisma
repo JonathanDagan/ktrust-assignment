@@ -29,15 +29,9 @@ model User {
   password  String
   bio       String?
   image     String?
-  followers Follower[]
   authored  Article[]  @relation("Author")
   comment   Comment[]  @relation("Author")
   role      Role       @default(USER)
-}
-
-model Follower {
-  username String @id @map("_id")
-  user     User   @relation(fields: [username], references: [username])
 }
 
 enum Role {
