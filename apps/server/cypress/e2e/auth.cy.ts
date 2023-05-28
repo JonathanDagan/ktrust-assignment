@@ -2,10 +2,12 @@ describe("auth - login", () => {
   it("login", () => {
     cy.api({
       method: "POST",
-      url: "/api/auth/login",
+      url: "/api/users/login",
       body: {
-        email: "alice@prisma.io",
-        password: "alice123",
+        user: {
+          email: "alice@prisma.io",
+          password: "alice123",
+        }
       },
     }).should((response) => {
       expect(response.status).to.eq(200);
