@@ -47,5 +47,5 @@ model Comment {
   author         User     @relation("Author", fields: [authorUsername], references: [username], onDelete: Cascade)
   authorUsername String   @map("author")
   Article        Article  @relation("Comments", fields: [articleSlug], references: [slug], onDelete: Cascade)
-  articleSlug    String
+  articleSlug    String @db.ObjectId
 }
