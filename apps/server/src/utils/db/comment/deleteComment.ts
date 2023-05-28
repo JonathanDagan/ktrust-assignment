@@ -15,6 +15,7 @@ export default async function deleteComment(
   // Delete the comment from the database.
   const deletedComment = await prisma.comment.delete({
     where: { id },
+    include: { author: true },
   });
   return deletedComment;
 }

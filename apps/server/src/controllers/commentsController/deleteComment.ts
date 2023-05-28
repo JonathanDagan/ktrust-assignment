@@ -1,7 +1,8 @@
 import { NextFunction, Response } from "express";
 import { Request } from "express-jwt";
-import commentDeletePrisma from "../../utils/db/comment/commentDeletePrisma";
-import userGetPrisma from "../../utils/db/user/userGetPrisma";
+// TODO fix name
+import removeComment from "../../utils/db/comment/deleteComment";
+import getUser from "../../utils/db/user/getUser";
 import commentViewer from "../../view/commentViewer";
 
 /**
@@ -18,16 +19,16 @@ export default async function deleteComment(
   next: NextFunction
 ) {
   const slug = req.params.slug;
-  const id = parseInt(req.params.id);
+  const id = req.params.id;
   const username = req.auth?.user?.username;
 
   try {
     // Get currentUser
-    const currentUser = await userGetPrisma(username);
+    const currentUser = await getUser(username);
     if (!currentUser) return res.sendStatus(401);
 
     // Remove comment from database
-    const comment = await commentDeletePrisma(slug, id, currentUser);
+    const comment = await removeComment(slug, id, currentUser);
     if (!comment) return res.sendStatus(500);
 
     // Create comment view
