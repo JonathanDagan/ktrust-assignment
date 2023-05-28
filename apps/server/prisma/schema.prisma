@@ -23,15 +23,15 @@ model Article {
 }
 
 model User {
-  id        String     @id @default(auto()) @map("_id") @db.ObjectId
-  email     String     @unique
-  username  String     @unique
-  password  String
-  bio       String?
-  image     String?
-  authored  Article[]  @relation("Author")
-  comment   Comment[]  @relation("Author")
-  role      Role       @default(USER)
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  email    String    @unique
+  username String    @unique
+  password String
+  bio      String?
+  image    String?
+  authored Article[] @relation("Author")
+  comment  Comment[] @relation("Author")
+  role     Role      @default(USER)
 }
 
 enum Role {
@@ -45,7 +45,7 @@ model Comment {
   updatedAt      DateTime @default(now())
   body           String
   author         User     @relation("Author", fields: [authorUsername], references: [username], onDelete: Cascade)
-  authorUsername String
+  authorUsername String   @map("author")
   Article        Article  @relation("Comments", fields: [articleSlug], references: [slug], onDelete: Cascade)
   articleSlug    String
 }

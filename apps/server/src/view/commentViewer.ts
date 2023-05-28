@@ -2,7 +2,7 @@ import { Comment, User } from "@prisma/client";
 import profileViewer from "./profileViewer";
 
 export default function commentViewer(
-  comment: Comment & { author: User & { followedBy: User[] } },
+  comment: Comment & { author: User },
   currentUser?: User
 ) {
   const commentView = {
