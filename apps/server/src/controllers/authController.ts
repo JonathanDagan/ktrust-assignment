@@ -10,6 +10,7 @@ export const loginUser = async (req: Request, res: Response) => {
   const { email, password } = req.body;
 
   try {
+    // TODO: add validation to check if email and password are provided and throw error if not
     const user = await prisma.user.findUnique({
       where: { email },
     });
