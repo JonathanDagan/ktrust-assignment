@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export class UsersService {
-  private apiUrl = 'http://localhost:3000/api';
+  private apiUrl = '/api/users';
 
   async login(email: string, password: string): Promise<any> {
     const url = `${this.apiUrl}/login`;
