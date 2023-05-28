@@ -14,30 +14,15 @@ router.get(
   articles.articlesList
 );
 
-router.get(
-  "/feed",
-  auth.authenticate,
-  validator.articlesFeedValidator,
-  articles.articlesFeed
-);
 
-router.get("/:slug", auth.optionalAuthenticate, articles.articlesGet);
+router.get("/:slug", auth.optionalAuthenticate, articles.getArticlesGet);
 
 router.post(
   "/",
   auth.authenticate,
   validator.articlesCreateValidator,
-  articles.articlesCreate
+  articles.createArticles
 );
-
-router.put(
-  "/:slug",
-  auth.authenticate,
-  validator.articlesUpdateValidator,
-  articles.articlesUpdate
-);
-
-router.delete("/:slug", auth.authenticate, articles.articlesDelete);
 
 router.post(
   "/:slug/comments",
@@ -52,14 +37,6 @@ router.delete(
   "/:slug/comments/:id([0-9]+)",
   auth.authenticate,
   comments.deleteComment
-);
-
-router.post("/:slug/favorite", auth.authenticate, articles.articlesFavorite);
-
-router.delete(
-  "/:slug/favorite",
-  auth.authenticate,
-  articles.articlesUnFavorite
 );
 
 export default router;
